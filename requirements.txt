@@ -1,0 +1,5 @@
+keyboard
+telebot
+selenium
+pyttsx3
+python-dotenv
