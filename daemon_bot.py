@@ -16,8 +16,6 @@ from datetime import datetime
 import pyttsx3
 from sqlite3 import connect
 import requests
-from tkinter import *
-from tkinter import ttk
 
 driver = None
 
@@ -26,29 +24,6 @@ load_dotenv()
 bot = TeleBot(os.getenv("TOKEN"))
 
 MODE: str = "normal"
-
-class Init_GUI:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("DaemonBot v2.1")
-        self.root.geometry("500x300")
-        self.root.resizable(height=False, width=False)
-        self.root.title = Label(text="Start DaemonBot",font=("Arial", 15)).pack(anchor="n", pady=25)  
-        self.root.token_entry = ttk.Entry(width=35)
-        self.root.user_id_entry = ttk.Entry(width=35)
-        self.root.token_entry.pack(anchor="center", pady=20)
-        self.root.user_id_entry.pack(anchor="center", pady=10)
-        self.btn_frame = ttk.Frame(width=50)
-        self.root.btn_run = ttk.Button(self.btn_frame, text="Запустить" ,width=10)
-        self.root.btn_clear = ttk.Button(self.btn_frame, text="Очистить", width=10)
-        self.root.btn_clear.pack(anchor="e", padx=100)
-        self.root.btn_run.pack(anchor="w")
-        self.btn_frame.pack(anchor="s")
-    def start(self):
-        self.root.mainloop()
-    
-    def kill(self):
-        self.root.destroy()
 
 def get_info_ipv4() -> str:
     """
